@@ -8,15 +8,15 @@
 </div>
   </div>
   <div class="column logbody">
-    <h3 class="mr-auto">Hello! let's get started</h3>
+    <h3 class="mr-auto">{{msg}}</h3>
     <p class="mb-5 mr-auto">Enter your details below.</p>
     <section>
        <b-field>
-            <b-input placeholder="Username" icon-pack="fas"
+            <b-input placeholder="Username" id="username" icon-pack="fas"
                 icon="user"></b-input>
       </b-field>
         <b-field>
-            <b-input placeholder="Password" type="password" icon-pack="fas"
+            <b-input placeholder="Password" type="password" id="password" icon-pack="fas"
                 icon="lock"></b-input>
       </b-field>
        <p class="control">
@@ -34,7 +34,16 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: ''
+    }
+  },
+  created () {
+    // `this` points to the vm instance
+    this.testCreated()
+  },
+  methods: {
+    testCreated: function () {
+      this.msg = 'Welcome'
     }
   }
 }
