@@ -15,4 +15,9 @@ describe('Login.vue', () => {
     expect(vm.$el.querySelector('.mb-5').textContent)
       .to.equal('Enter your details below.')
   })
+  it('username length incorrect', () => {
+    // const Constructor = Vue.extend(Login)
+    const vm = new Vue(Login).$mount()
+    expect(vm.sum(1, 2)).to.equal(3)
+  })
 })
