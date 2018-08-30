@@ -22,4 +22,9 @@ describe('Login.vue', () => {
     const vm = new Vue(Login).$mount()
     expect(vm.sum(1, 2)).to.equal(3)
   })
+  it('username length incorrect', () => {
+    // const Constructor = Vue.extend(Login)
+    const vm = new Vue(Login).$mount()
+    expect(vm.sum(1, 2)).to.equal(3)
+  })
 })
