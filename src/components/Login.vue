@@ -37,8 +37,8 @@
       return {
         msg: '',
         user: {
-          username: 'Grace',
-          password: '1224'
+          username: '',
+          password: ''
         }
       }
     },
@@ -60,6 +60,7 @@
           if (data.status === 200) {
             window.sessionStorage.setItem('currlogin', this.user.username)
             this.$router.push('/Home')
+
           }
 
         } catch (error) {

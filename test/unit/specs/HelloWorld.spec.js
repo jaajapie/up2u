@@ -17,12 +17,12 @@ describe('Login.vue', () => {
     )
   })
 
-  it('check username !!', () => {
+  it('check username incorrect  !!', () => {
     const vm = new Vue(Login).$mount()
     expect(vm.user.username).to.equal('Grace')
   })
 
-  it('check password !!', () => {
+  it('check  password  incorrect !!', () => {
     const vm = new Vue(Login).$mount()
     expect(vm.user.password).to.equal('1224')
   })
