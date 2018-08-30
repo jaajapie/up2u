@@ -12,14 +12,14 @@
       <p class="mb-5 mr-auto">Enter your details below.</p>
       <section>
         <b-field>
-          <b-input placeholder="Username" ref="username" icon-pack="fas" icon="user" v-model="users.username" value="test"> </b-input>
+          <b-input placeholder="Username" ref="username" icon-pack="fas" icon="user" v-model="user.username"> </b-input>
         </b-field>
         <b-field>
-          <b-input placeholder="Password" type="password" id="password" icon-pack="fas" v-model="users.password" value="1234" icon="lock">
+          <b-input placeholder="Password" type="password" icon-pack="fas" v-model="user.password" icon="lock">
           </b-input>
         </b-field>
         <p class="control">
-          <button class="button is-primary">
+          <button class="button is-primary" @click="PostLogin">
             SIGN IN
           </button>
         </p>
@@ -30,20 +30,21 @@
 
 <script>
   import axios from 'axios'
+
   export default {
     name: 'HelloWorld',
     data() {
       return {
         msg: '',
-        users: {
-          total: 0,
-          username: 'test',
-          password: ''
+        user: {
+          username: 'Grace',
+          password: '1224'
         }
       }
     },
     created() {
       console.log('I am created')
+      window.sessionStorage.clear()
       // `this` points to the vm instance
       this.testCreated()
     },
@@ -54,10 +55,15 @@
       sum(a, b) {
         return a + b
       }, async PostLogin() {
-        console.log('rrr')
-        const { data } = await axios.post('http://localhost:5000//api/v1/login', this.user)
-        if (data.status === 200) {
-          console.log('complate')
+        try {
+          const { data } = await axios.post('http://localhost:5000/api/v1/login', this.user)
+          if (data.status === 200) {
+            window.sessionStorage.setItem('currlogin', this.user.username)
+            this.$router.push('/Home')
+          }
+
+        } catch (error) {
+          console.log(error.message)
         }
       }
     },

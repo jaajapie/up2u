@@ -17,14 +17,13 @@ describe('Login.vue', () => {
     )
   })
 
-  it('username length incorrect', () => {
-    //  const Constructor = Vue.extend(Login)
+  it('check username !!', () => {
     const vm = new Vue(Login).$mount()
-    expect(vm.sum(1, 2)).to.equal(3)
+    expect(vm.user.username).to.equal('Grace')
   })
-  it('username length incorrect', () => {
-    // const Constructor = Vue.extend(Login)
+
+  it('check password !!', () => {
     const vm = new Vue(Login).$mount()
-    expect(vm.sum(1, 2)).to.equal(3)
+    expect(vm.user.password).to.equal('1224')
   })
 })
